@@ -14,13 +14,180 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      audit_events: {
+        Row: {
+          claim_uuid: string
+          created_at: string
+          id: string
+          payload: Json
+          step: string
+          user_id: string
+        }
+        Insert: {
+          claim_uuid: string
+          created_at?: string
+          id?: string
+          payload?: Json
+          step: string
+          user_id: string
+        }
+        Update: {
+          claim_uuid?: string
+          created_at?: string
+          id?: string
+          payload?: Json
+          step?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "audit_events_claim_uuid_fkey"
+            columns: ["claim_uuid"]
+            isOneToOne: false
+            referencedRelation: "claims"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      claims: {
+        Row: {
+          ai_outcome: Json | null
+          ai_result: Json | null
+          analysis_snapshot: Json | null
+          claim_amount: number
+          claim_id: string
+          created_at: string
+          dealer_id: string
+          decided_at: string | null
+          human_decision: string | null
+          id: string
+          labor_hours: number
+          narrative: string
+          repair_type: string
+          reviewer: string | null
+          risk_score: number | null
+          rule_results: Json | null
+          second_decided_at: string | null
+          second_decision: string | null
+          second_note: string | null
+          second_reviewer_id: string | null
+          serial_number: string
+          status: string
+          system_decision: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          ai_outcome?: Json | null
+          ai_result?: Json | null
+          analysis_snapshot?: Json | null
+          claim_amount?: number
+          claim_id: string
+          created_at?: string
+          dealer_id: string
+          decided_at?: string | null
+          human_decision?: string | null
+          id?: string
+          labor_hours?: number
+          narrative?: string
+          repair_type: string
+          reviewer?: string | null
+          risk_score?: number | null
+          rule_results?: Json | null
+          second_decided_at?: string | null
+          second_decision?: string | null
+          second_note?: string | null
+          second_reviewer_id?: string | null
+          serial_number: string
+          status?: string
+          system_decision?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          ai_outcome?: Json | null
+          ai_result?: Json | null
+          analysis_snapshot?: Json | null
+          claim_amount?: number
+          claim_id?: string
+          created_at?: string
+          dealer_id?: string
+          decided_at?: string | null
+          human_decision?: string | null
+          id?: string
+          labor_hours?: number
+          narrative?: string
+          repair_type?: string
+          reviewer?: string | null
+          risk_score?: number | null
+          rule_results?: Json | null
+          second_decided_at?: string | null
+          second_decision?: string | null
+          second_note?: string | null
+          second_reviewer_id?: string | null
+          serial_number?: string
+          status?: string
+          system_decision?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "claims_second_reviewer_id_fkey"
+            columns: ["second_reviewer_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          display_name: string
+          id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string
+          id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string
+          id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      assign_second_reviewer: {
+        Args: { p_id: string; p_reviewer: string }
+        Returns: undefined
+      }
+      record_claim_decision: {
+        Args: { p_action: string; p_id: string; p_note: string; p_step: Json }
+        Returns: string
+      }
+      record_second_decision: {
+        Args: { p_action: string; p_id: string; p_note: string }
+        Returns: undefined
+      }
+      save_claim_analysis: {
+        Args: {
+          p_analysis: Json
+          p_claim: Json
+          p_outcome: Json
+          p_steps: Json
+        }
+        Returns: string
+      }
     }
     Enums: {
       [_ in never]: never
