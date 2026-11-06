@@ -37,8 +37,7 @@ function SignIn() {
       <h1 className="text-3xl font-semibold">Warranty Sentinel</h1>
       <h2 className="text-lg text-muted-foreground">Reviewer sign-in</h2>
       <div className="space-y-3">
-        <Button className="w-full" variant="outline" disabled={busy} onClick={() => void signIn('google')}>Continue with Google</Button>
-        <Button className="lovable-auth-button w-full" disabled={busy} onClick={() => void signIn('lovable')}>Continue with Lovable</Button>
+        <Button className="w-full" variant="outline" disabled={busy} onClick={() => void signIn()}>Continue with Google</Button>
       </div>
       {error && <p role="alert" className="text-sm text-danger">{error}</p>}
       <Button variant="link" onClick={() => void navigate({ to: '/' })}>Back to claims</Button>
