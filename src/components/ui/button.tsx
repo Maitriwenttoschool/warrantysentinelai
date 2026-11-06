@@ -16,6 +16,12 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        industrial:
+          "bg-amber text-amber-foreground font-semibold tracking-[0.08em] shadow-[var(--shadow-card)] hover:bg-amber/90",
+        approve: "bg-success text-success-foreground font-semibold shadow-sm hover:bg-success/90",
+        investigate: "bg-amber text-amber-foreground font-semibold shadow-sm hover:bg-amber/90",
+        reject: "bg-danger text-danger-foreground font-semibold shadow-sm hover:bg-danger/90",
+        navy: "bg-navy text-navy-foreground shadow-sm hover:bg-navy-muted",
       },
       size: {
         default: "h-9 px-4 py-2",

@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+- Claim narrative AI runs server-side in src/lib/claim-ai.functions.ts via Lovable AI Gateway; on AI failure the claim is routed to manual review, never simulated (no external workflow engine in the critical path).
+- Reviewer session state uses one shared provider; the public workspace retains demo access while analysis requires authenticated server middleware to protect AI usage.
+- Claim analysis and human decisions save through security-invoker database functions, atomically with append-only audit events, so records cannot partially commit; database RLS scopes access to the signed-in reviewer.
+- Claim evidence files live in the private claim-evidence bucket under <user_id>/<claim_uuid>/, so storage policies can scope access to the owning reviewer.
+- Evidence viewing uses short-lived signed URLs obtained on demand through the existing storage client; never expose private bucket files through public URLs.
+- Independent approval is assigned explicitly to a different registered reviewer; database triggers enforce immutable signoffs and append their audit events atomically, with narrowly scoped assigned-reviewer RLS.
+- Dealer analytics aggregates all owner-submitted saved claims through the paginated shared storage reader; assigned claims are excluded to avoid double-counting exposure.

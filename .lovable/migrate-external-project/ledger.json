@@ -1,0 +1,72 @@
+[
+ {
+  "capability": "code",
+  "source": "TanStack Start app (claims workspace, auth, dealers pages)",
+  "outcome": "migrate",
+  "status": "verified",
+  "next_action": ""
+ },
+ {
+  "capability": "schema",
+  "source": "drizzle/migrations 0000-0004 (claims, audit_events, profiles, functions, triggers, RLS)",
+  "outcome": "migrate",
+  "status": "verified",
+  "next_action": ""
+ },
+ {
+  "capability": "records",
+  "source": "previous Cloud database",
+  "outcome": "migrate",
+  "status": "pending",
+  "next_action": "request CSV exports of claims, audit_events, profiles"
+ },
+ {
+  "capability": "auth_identities",
+  "source": "Lovable Cloud Google sign-in",
+  "outcome": "migrate",
+  "status": "pending",
+  "next_action": "request users export; roadmap notes no reviewers registered"
+ },
+ {
+  "capability": "authorization",
+  "source": "RLS owner + assigned second reviewer",
+  "outcome": "migrate",
+  "status": "implemented",
+  "next_action": "signed-in flow untested (no reviewers yet)"
+ },
+ {
+  "capability": "file_storage",
+  "source": "private claim-evidence bucket",
+  "outcome": "migrate",
+  "status": "implemented",
+  "next_action": "signed-in flow untested (no reviewers yet)"
+ },
+ {
+  "capability": "ai",
+  "source": "Lovable AI Gateway claim narrative analysis",
+  "outcome": "preserve",
+  "status": "implemented",
+  "next_action": "signed-in flow untested (no reviewers yet)"
+ },
+ {
+  "capability": "public_endpoints_webhooks_schedules",
+  "source": "none found",
+  "outcome": "none",
+  "status": "verified",
+  "next_action": ""
+ },
+ {
+  "capability": "secrets",
+  "source": "LOVABLE_DB_MIGRATION_URL (drizzle tooling only)",
+  "outcome": "not_needed",
+  "status": "verified",
+  "next_action": ""
+ },
+ {
+  "capability": "verification",
+  "source": "tests/*.test.ts",
+  "outcome": "migrate",
+  "status": "partial",
+  "next_action": "signed-in flow untested (no reviewers yet)"
+ }
+]
