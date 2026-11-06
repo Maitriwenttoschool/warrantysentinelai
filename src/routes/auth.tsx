@@ -23,10 +23,10 @@ function SignIn() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   useEffect(() => { if (user) void navigate({ to: '/', replace: true }); }, [user, navigate]);
-  async function signIn(provider: 'google' | 'lovable') {
+  async function signIn() {
     setBusy(true); setError('');
     try {
-      const result = await lovable.auth.signInWithOAuth(provider, { redirect_uri: window.location.origin });
+      const result = await lovable.auth.signInWithOAuth('google', { redirect_uri: window.location.origin });
       if (result.error) setError(result.error.message);
     } catch { setError('Sign-in could not complete. Please try again.'); }
     finally { setBusy(false); }
