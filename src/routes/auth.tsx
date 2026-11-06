@@ -4,7 +4,6 @@ import { ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { lovable } from '@/integrations/lovable';
 import { useReviewer } from '@/hooks/reviewer';
-import '@lovable.dev/cloud-auth-js/styles.css';
 
 export const Route = createFileRoute('/auth')({
   head: () => ({ meta: [
