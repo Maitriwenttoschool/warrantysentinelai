@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { requiresSeniorApproval } from '../src/lib/warranty-engine';
-import { dealerMetrics } from '../src/lib/dealer-analytics';
+import { requiresSeniorApproval } from '@/lib/warranty-engine';
+import { dealerMetrics } from '@/lib/dealer-analytics';
 describe('independent approval gates', () => {
   it('requires second approval above $50,000', () => { expect(requiresSeniorApproval(50001, 0)).toBe(true); expect(requiresSeniorApproval(50000, 0)).toBe(false); });
   it('requires second approval for high risk starting at 60', () => { expect(requiresSeniorApproval(450, 60)).toBe(true); expect(requiresSeniorApproval(450, 59)).toBe(false); });
