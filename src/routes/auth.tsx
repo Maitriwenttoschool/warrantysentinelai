@@ -4,7 +4,6 @@ import { ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { lovable } from '@/integrations/lovable';
 import { useReviewer } from '@/hooks/reviewer';
-import '@lovable.dev/cloud-auth-js/styles.css';
 
 export const Route = createFileRoute('/auth')({
   head: () => ({ meta: [
@@ -23,10 +22,10 @@ function SignIn() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   useEffect(() => { if (user) void navigate({ to: '/', replace: true }); }, [user, navigate]);
-  async function signIn(provider: 'google' | 'lovable') {
+  async function signIn() {
     setBusy(true); setError('');
     try {
-      const result = await lovable.auth.signInWithOAuth(provider, { redirect_uri: window.location.origin });
+      const result = await lovable.auth.signInWithOAuth('google', { redirect_uri: window.location.origin });
       if (result.error) setError(result.error.message);
     } catch { setError('Sign-in could not complete. Please try again.'); }
     finally { setBusy(false); }
@@ -37,8 +36,7 @@ function SignIn() {
       <h1 className="text-3xl font-semibold">Warranty Sentinel</h1>
       <h2 className="text-lg text-muted-foreground">Reviewer sign-in</h2>
       <div className="space-y-3">
-        <Button className="w-full" variant="outline" disabled={busy} onClick={() => void signIn('google')}>Continue with Google</Button>
-        <Button className="lovable-auth-button w-full" disabled={busy} onClick={() => void signIn('lovable')}>Continue with Lovable</Button>
+        <Button className="w-full" variant="outline" disabled={busy} onClick={() => void signIn()}>Continue with Google</Button>
       </div>
       {error && <p role="alert" className="text-sm text-danger">{error}</p>}
       <Button variant="link" onClick={() => void navigate({ to: '/' })}>Back to claims</Button>

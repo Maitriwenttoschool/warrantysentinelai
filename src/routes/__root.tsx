@@ -80,12 +80,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Warranty_NLP_Agent" },
       { name: "description", content: "Autonomous warranty claim orchestration for heavy equipment fleets." },
-      { name: "author", content: "Lovable" },
       { property: "og:title", content: "Warranty_NLP_Agent" },
       { property: "og:description", content: "Autonomous warranty claim orchestration for heavy equipment fleets." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
