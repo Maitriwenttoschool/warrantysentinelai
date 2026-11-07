@@ -1,4 +1,5 @@
 # Roadmap (order: 2 → 3 → 4 → 1)
+- [ ] Add account settings, email/password sign-in, and two inaugural reviewer accounts with separate secure roles.
 - [x] Complete remaining development that does not need external services: approval controls and dealer analytics.
 - [x] Reviewer sign-in and profiles.
 - [x] Save claims, analysis, decisions, and audit steps; reopen after reload.

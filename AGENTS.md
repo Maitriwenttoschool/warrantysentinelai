@@ -35,3 +35,4 @@ use the editor.
 - Evidence viewing uses short-lived signed URLs obtained on demand through the existing storage client; never expose private bucket files through public URLs.
 - Independent approval is assigned explicitly to a different registered reviewer; database triggers enforce immutable signoffs and append their audit events atomically, with narrowly scoped assigned-reviewer RLS.
 - Dealer analytics aggregates all owner-submitted saved claims through the paginated shared storage reader; assigned claims are excluded to avoid double-counting exposure.
+- Account settings use the shared reviewer provider and owner-scoped client reads; role assignments are stored separately and are read-only to reviewers to prevent self-promotion.

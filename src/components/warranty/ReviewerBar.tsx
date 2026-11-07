@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate } from '@tanstack/react-router';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { LogOut, Save, FolderOpen } from 'lucide-react';
+import { LogOut, Save, FolderOpen, Settings } from 'lucide-react';
 import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -55,6 +55,7 @@ export function ReviewerBar({ onOpen, disabled }: { onOpen: (row: SavedClaim) =>
         <Button size="sm" variant="outline" disabled={disabled} onClick={() => setShowClaims(v => !v)}><FolderOpen />Claims queue</Button>
         <Button size="sm" variant="outline" asChild disabled={disabled}><Link to="/dealers">Dealer analytics</Link></Button>
         <ReviewerId id={user.id} />
+        <Button size="sm" variant="outline" asChild><Link to="/settings"><Settings />Settings</Link></Button>
         <span className="min-w-0 flex-1 truncate text-xs text-muted-foreground">{user.email}</span>
         <Button size="sm" variant="ghost" disabled={disabled} onClick={() => void signOut()}><LogOut />Sign out</Button>
       </>}
