@@ -1,5 +1,6 @@
 # Roadmap (order: 2 → 3 → 4 → 1)
-- [ ] Add account settings, email/password sign-in, and two inaugural reviewer accounts with separate secure roles.
+- [x] Add account settings, email/password sign-in, and two inaugural reviewer accounts with separate secure roles; profile save/readback and role protection verified in a minted reviewer session.
+- [ ] Verify email/password login after both inaugural reviewers confirm their email addresses.
 - [x] Complete remaining development that does not need external services: approval controls and dealer analytics.
 - [x] Reviewer sign-in and profiles.
 - [x] Save claims, analysis, decisions, and audit steps; reopen after reload.
@@ -18,6 +19,6 @@
 - [x] Dealer risk analytics, date/dealer filters, owner-only aggregation, and CSV export.
 - [ ] ERP settlement export (needs ERP endpoint).
 ## 1. Closeout
-- [ ] Verify signed-in workflow end to end — no registered reviewers exist; needs first reviewer sign-in and a second reviewer for dual signoff.
+- [ ] Verify claim analysis and dual signoff end to end — inaugural reviewers exist; pending email confirmation and a complete claim flow.
 - [x] Verify public desktop/mobile pages, print PDF, approval business rules, and deployed security checks.
 - [x] Mandatory decision note for Investigate/Reject.
