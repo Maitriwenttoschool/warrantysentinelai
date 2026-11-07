@@ -392,10 +392,10 @@ export function buildAuditTrail(
     {
       id: "A1",
       title: "Claim Received",
-      subtitle: "Source: Lovable Intake · channel=web-form",
+      subtitle: "Source: Web Intake · channel=web-form",
       timestamp: t(0),
       state: "complete",
-      payload: { event: "claim.received", source: "lovable_intake", payload: buildPayload(claim) },
+      payload: { event: "claim.received", source: "web_intake", payload: buildPayload(claim) },
     },
     {
       id: "A2",
