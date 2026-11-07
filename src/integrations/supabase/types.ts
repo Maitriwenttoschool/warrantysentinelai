@@ -146,19 +146,46 @@ export type Database = {
           avatar_url: string | null
           created_at: string
           display_name: string
+          first_name: string
           id: string
+          last_name: string
+          login_id: string | null
         }
         Insert: {
           avatar_url?: string | null
           created_at?: string
           display_name?: string
+          first_name?: string
           id: string
+          last_name?: string
+          login_id?: string | null
         }
         Update: {
           avatar_url?: string | null
           created_at?: string
           display_name?: string
+          first_name?: string
           id?: string
+          last_name?: string
+          login_id?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["warranty_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["warranty_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["warranty_role"]
+          user_id?: string
         }
         Relationships: []
       }
@@ -190,7 +217,7 @@ export type Database = {
       }
     }
     Enums: {
-      [_ in never]: never
+      warranty_role: "Warranty Supervisor" | "Warranty Lead Roughneck"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -317,6 +344,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      warranty_role: ["Warranty Supervisor", "Warranty Lead Roughneck"],
+    },
   },
 } as const
