@@ -26,7 +26,7 @@ function ResetPassword() {
     else setRecovery(sessionStorage.getItem('warranty-password-recovery') === 'true');
   }, []);
   return <main className="min-h-screen bg-background px-6 py-20"><div className="mx-auto max-w-sm space-y-6">
-    <h1 className="text-3xl font-semibold">Warranty Sentinel</h1><h2 className="text-lg">Reset password</h2>
+    <h1 className="text-3xl font-semibold">Warranty Sentinel</h1><p className="text-sm font-semibold text-amber">Kensington Big Machines Company</p><h2 className="text-lg">Reset password</h2>
     {done ? <p role="status" className="text-success">Password updated.</p> : !recovery ? <p className="text-muted-foreground">Open the password reset link from your email.</p> : <form className="space-y-4" onSubmit={e => { e.preventDefault(); void (async () => {
       setBusy(true); setError('');
       try {

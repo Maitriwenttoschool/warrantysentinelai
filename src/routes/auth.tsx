@@ -39,6 +39,7 @@ function SignIn() {
     <div className="mx-auto max-w-sm space-y-6">
       <ShieldCheck className="size-10 text-amber" />
       <h1 className="text-3xl font-semibold">Warranty Sentinel</h1>
+      <p className="text-sm font-semibold text-amber">Kensington Big Machines Company</p>
       <h2 className="text-lg text-muted-foreground">Reviewer sign-in</h2>
       <div className="space-y-3">
         <form className="space-y-4" onSubmit={e => { e.preventDefault(); void (async () => {
@@ -65,6 +66,7 @@ function SignIn() {
           } catch (e) { setError(e instanceof Error ? e.message : 'Reset email could not be sent.'); }
           finally { setBusy(false); }
         })(); }}>Forgot password?</Button>
+        <p className="text-center text-xs text-muted-foreground">Confidential — Kensington Big Machines Company · Powered by Marvin Bower &amp; Co</p>
         <Button className="w-full" variant="outline" disabled={busy} onClick={() => void signIn()}>Continue with Google</Button>
       </div>
       {notice && <p role="status" className="text-sm text-success">{notice}</p>}

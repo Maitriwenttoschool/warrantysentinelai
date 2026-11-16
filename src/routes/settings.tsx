@@ -51,7 +51,7 @@ function AccountSettings() {
   }
   return <main className="mx-auto min-h-screen max-w-4xl px-6 py-8">
     <Button asChild variant="ghost" className="mb-6"><Link to="/"><ArrowLeft />Claims workspace</Link></Button>
-    <header className="border-b border-border pb-6"><p className="mb-2 text-sm font-semibold text-amber">Warranty Sentinel</p><h1 className="flex items-center gap-3 text-3xl font-semibold"><Settings />Account settings</h1></header>
+    <header className="border-b border-border pb-6"><p className="mb-2 text-sm font-semibold text-amber">Warranty Sentinel · Kensington Big Machines Company</p><h1 className="flex items-center gap-3 text-3xl font-semibold"><Settings />Account settings</h1></header>
     {!ready ? <p className="py-12 text-muted-foreground">Checking reviewer session…</p> : !user ? <div className="py-12"><Button asChild variant="navy"><Link to="/auth">Sign in to manage your account</Link></Button></div> : account.isPending ? <p className="py-12">Loading account…</p> : account.isError ? <div className="py-12" role="alert">Account could not load. <Button variant="outline" onClick={() => void account.refetch()}>Retry</Button></div> : <>
       {error && <p role="alert" className="mt-6 text-sm text-danger">{error}</p>}
       {notice && <p role="status" className="mt-6 text-sm text-success">{notice}</p>}

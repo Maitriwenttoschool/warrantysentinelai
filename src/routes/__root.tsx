@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { ReviewerProvider } from '@/hooks/reviewer';
+import { SiteFooter } from '@/components/SiteFooter';
 
 function NotFoundComponent() {
   return (
@@ -125,7 +126,12 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <ReviewerProvider><Outlet /></ReviewerProvider>
+      <ReviewerProvider>
+        <div className="flex min-h-screen flex-col">
+          <div className="flex-1"><Outlet /></div>
+          <SiteFooter />
+        </div>
+      </ReviewerProvider>
     </QueryClientProvider>
   );
 }
