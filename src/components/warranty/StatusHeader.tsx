@@ -49,7 +49,7 @@ export function StatusHeader({
             <div>
               <h1 className="font-mono text-base font-semibold tracking-tight">Warranty_NLP_Agent</h1>
               <p className="text-xs text-navy-foreground/60">
-                Autonomous Supply Chain Orchestration · Heavy Equipment Warranty Division
+                Kensington Big Machines Company · Autonomous Supply Chain Orchestration · Heavy Equipment Warranty Division
               </p>
             </div>
           </div>
